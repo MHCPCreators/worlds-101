@@ -198,14 +198,27 @@
         }
 
         .step-code {
-            background: #2d3436;
-            color: #74b9ff;
-            padding: 10px 15px;
+            background: #f8fafc; /* light background */
+            color: #1f2937; /* dark text */
+            padding: 10px 14px;
             border-radius: 8px;
-            font-family: 'Courier New', monospace;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
             font-size: 0.9rem;
             margin: 10px 0;
-            border-left: 4px solid #74b9ff;
+            border-left: 4px solid #0984e3; /* accent */
+            box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06);
+            overflow-x: auto;
+            white-space: pre; /* preserve formatting */
+        }
+
+        /* Inline code styling (light theme) */
+        code {
+            background: rgba(0,0,0,0.06);
+            color: #1f2937;
+            padding: 0.1em 0.35em;
+            border-radius: 4px;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+            font-size: 0.95em;
         }
 
         /* Step subtitles and secondary lists */
@@ -216,6 +229,29 @@
         }
         .step-links.secondary {
             margin-top: 6px;
+        }
+
+        /* Challenge drawer that visually pops from the step */
+        .challenge {
+            position: relative;
+            margin: 10px 0 0 0; /* align within the card */
+            padding: 12px 14px;
+            border-radius: 10px;
+            background: rgba(9, 132, 227, 0.04);
+            border: 1px solid rgba(9, 132, 227, 0.18);
+            border-left: 4px solid #0984e3;
+            box-shadow: none; /* remove pop */
+        }
+        .challenge::before { content: none; }
+        .challenge-title {
+            font-weight: 700;
+            color: #0b3d91;
+            margin: 0 0 8px 0;
+            font-size: 0.95rem;
+            letter-spacing: 0.2px;
+        }
+        .challenge .step-links.secondary {
+            margin-top: 4px;
         }
 
         @media (min-width: 769px) {
@@ -578,10 +614,12 @@
                         <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/get-started/install-desktop-editor#install-the-desktop-editor">Download the Worlds Desktop Editor</a></li>
                         <li><a href="https://code.visualstudio.com/download">Download Visual Studio Code for script creation and modification</a></li>
                     </ul>
-                    <div class="step-subtitle">Challenge Yourself</div>
-                    <ul class="step-links secondary">
-                        <li><a href="https://developers.meta.com/horizon-worlds/learn/videos/configuring-your-dev-environment/">Watch a video on configuring your development environment and complete the Hands-on Challenge</a></li>
-                    </ul>
+                    <div class="challenge">
+                        <div class="challenge-title">Challenge Yourself</div>
+                        <ul class="step-links secondary">
+                            <li><a href="https://developers.meta.com/horizon-worlds/learn/videos/configuring-your-dev-environment/">Watch a video on configuring your development environment and complete the Hands-on Challenge</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
@@ -643,10 +681,12 @@
                         <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/desktop-editor/generative-ai-creation-tools/generative-ai-mesh-generation-tool#generate-a-mesh-with-mesh-gen-11">Add a generated mesh</a></li>
                         <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/desktop-editor/getting-started/user-interface/object-tools">Reposition the mesh</a></li>
                     </ul>
-                    <div class="step-subtitle">Challenge Yourself</div>
-                    <ul class="step-links secondary">
-                        <li><a href="https://developers.meta.com/horizon-worlds/learn/videos/custom-meshes-with-genai/">Watch a video on creating meshes with GenAI and complete the Hands-on Challenge</a></li>
-                    </ul>
+                    <div class="challenge">
+                        <div class="challenge-title">Challenge Yourself</div>
+                        <ul class="step-links secondary">
+                            <li><a href="https://developers.meta.com/horizon-worlds/learn/videos/custom-meshes-with-genai/">Watch a video on creating meshes with GenAI and complete the Hands-on Challenge</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
@@ -659,10 +699,12 @@
                     <ul class="step-links">
                         <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/desktop-editor/generative-ai-creation-tools/generative-ai-skybox-tool">Add a generated sky</a></li>
                     </ul>
-                    <div class="step-subtitle">Challenge Yourself</div>
-                    <ul class="step-links secondary">
-                        <li><a href="https://developers.meta.com/horizon-worlds/learn/videos/creating-a-custom-skybox/">Watch a video on creating skyboxes with GenAI and complete the Hands-on Challenge</a></li>
-                    </ul>
+                    <div class="challenge">
+                        <div class="challenge-title">Challenge Yourself</div>
+                        <ul class="step-links secondary">
+                            <li><a href="https://developers.meta.com/horizon-worlds/learn/videos/creating-a-custom-skybox/">Watch a video on creating skyboxes with GenAI and complete the Hands-on Challenge</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
@@ -835,10 +877,12 @@
                     <ul class="step-links">
                         <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/typescript/local-scripting/getting-started-with-local-scripting">Attach a new script to the ball and set it to Local Execution Mode</a></li>
                     </ul>
-                    <div class="step-subtitle">Challenge Yourself</div>
-                    <ul class="step-links secondary">
-                        <li><a href="https://developers.meta.com/horizon-worlds/learn/videos/sending-receiving-and-ownership-in-scripting">Watch a video on local scripting and complete the Hands-on Challenge</a></li>
-                    </ul>
+                    <div class="challenge">
+                        <div class="challenge-title">Challenge Yourself</div>
+                        <ul class="step-links secondary">
+                            <li><a href="https://developers.meta.com/horizon-worlds/learn/videos/sending-receiving-and-ownership-in-scripting">Watch a video on local scripting and complete the Hands-on Challenge</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
@@ -906,10 +950,12 @@
                             </ul>
                         </li>
                     </ul>
-                    <div class="step-subtitle">Challenge Yourself</div>
-                    <ul class="step-links secondary">
-                        <li><a href="https://developers.meta.com/horizon-worlds/learn/videos/building-game-elements-with-custom-uis">Watch a video on interactive UIs and complete the Hands-on Challenge</a></li>
-                    </ul>
+                    <div class="challenge">
+                        <div class="challenge-title">Challenge Yourself</div>
+                        <ul class="step-links secondary">
+                            <li><a href="https://developers.meta.com/horizon-worlds/learn/videos/building-game-elements-with-custom-uis">Watch a video on interactive UIs and complete the Hands-on Challenge</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
