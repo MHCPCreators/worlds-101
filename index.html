@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Worlds 101 - Learning Path</title>
+    <title>MHCP - Worlds 101</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <style>
@@ -190,6 +190,11 @@
             color: #74b9ff;
             text-decoration: underline;
         }
+
+    /* What's Next: use icons instead of arrows */
+    .whats-next .step-links > li::before { content: none; }
+    .whats-next .step-links > li { padding-left: 0; }
+    .whats-next .item-icon { margin-right: 8px; font-size: 1.05rem; line-height: 1; }
 
         /* Non-list separators like "and/or" between groups */
         .list-separator {
@@ -660,8 +665,8 @@
                     <h3 class="step-title">1. Read System Requirements</h3>
                     <p class="step-description">Let's get started by verifying you have the right environment to start developing and testing your World. Check these hardware requirements:</p>
                     <ul class="step-links">
-                        <li><a href="https://www.meta.com/help/quest/140991407990979/">Do you have a Windows PC?</a></li>
-                        <li><a href="https://www.meta.com/help/quest/1178714089211378/?srsltid=AfmBOop_RFEsVWRm0l-ydXbLnyzafgMahmgjdVh4hJ9XrRs_zJ5c1dIa">Do you have a mobile device with the Meta Horizon app installed?</a></li>
+                        <li><a href="https://www.meta.com/help/quest/140991407990979/" target="_blank" rel="noopener noreferrer">Do you have a Windows PC?</a></li>
+                        <li><a href="https://www.meta.com/help/quest/1178714089211378/?srsltid=AfmBOop_RFEsVWRm0l-ydXbLnyzafgMahmgjdVh4hJ9XrRs_zJ5c1dIa" target="_blank" rel="noopener noreferrer">Do you have a mobile device with the Meta Horizon app installed?</a></li>
                     </ul>
                 </div>
             </div>
@@ -673,13 +678,13 @@
                     <h3 class="step-title">2. Download Worlds Desktop Editor</h3>
                     <p class="step-description">Now let's install the applications that you will use during your world creation:</p>
                     <ul class="step-links">
-                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/get-started/install-desktop-editor#install-the-desktop-editor">Download the Worlds Desktop Editor</a></li>
-                        <li><a href="https://code.visualstudio.com/download">Download Visual Studio Code for script creation and modification</a></li>
+                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/get-started/install-desktop-editor#install-the-desktop-editor" target="_blank" rel="noopener noreferrer">Download the Worlds Desktop Editor</a></li>
+                        <li><a href="https://code.visualstudio.com/download" target="_blank" rel="noopener noreferrer">Download Visual Studio Code for script creation and modification</a></li>
                     </ul>
                     <div class="challenge">
                         <div class="challenge-title">Challenge Yourself</div>
                         <ul class="step-links secondary">
-                            <li><a href="https://developers.meta.com/horizon-worlds/learn/videos/configuring-your-dev-environment/">Watch a video on configuring your development environment and complete the Hands-on Challenge</a></li>
+                            <li><a href="https://developers.meta.com/horizon-worlds/learn/videos/configuring-your-dev-environment/" target="_blank" rel="noopener noreferrer">Watch a video on configuring your development environment and complete the Hands-on Challenge</a></li>
                         </ul>
                     </div>
                 </div>
@@ -692,7 +697,7 @@
                     <h3 class="step-title">3. Create a Meta Account</h3>
                     <p class="step-description">You've successfully set up your world creation environment! Great job! Let's log in and create an avatar to start you on your world creation journey:</p>
                     <ul class="step-links">
-                        <li><a href="https://quest.meta.com/avatar">Create a Meta Horizon Avatar</a></li>
+                        <li><a href="https://quest.meta.com/avatar" target="_blank" rel="noopener noreferrer">Create a Meta Horizon Avatar</a></li>
                     </ul>
                 </div>
             </div>
@@ -708,11 +713,11 @@
                     <h3 class="step-title">4. Create New World</h3>
                     <p class="step-description">You’re ready to start building in the metaverse! Every masterpiece starts as a blank canvas. In Meta Horizon, you start on a blank world! Open the Worlds Desktop Editor and log in with your new account. Then, create a new world:</p>
                     <ul class="step-links">
-                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/get-started/create-your-first-world#step-1-create-a-new-world">Press the New World button in Creation Home</a></li>
+                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/get-started/create-your-first-world#step-1-create-a-new-world" target="_blank" rel="noopener noreferrer">Press the New World button in Creation Home</a></li>
                     </ul>
                     <div class="list-separator"><span class="highlight-text">or</span></div>
                     <ul class="step-links">
-                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/tutorial-worlds/getting-started-with-tutorials/access-tutorial-worlds">Create Tutorial World to jump into complete examples</a></li>
+                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/tutorial-worlds/getting-started-with-tutorials/access-tutorial-worlds" target="_blank" rel="noopener noreferrer">Create Tutorial World to jump into complete examples</a></li>
                     </ul>
                 </div>
             </div>
@@ -724,11 +729,11 @@
                     <h3 class="step-title">5. Move Around the World</h3>
                     <p class="step-description">Pretty simple, right? Let's explore the blank world for a moment:</p>
                     <ul class="step-links">
-                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/desktop-editor/getting-started/user-interface/primary_tools#camera-speed-controls">Fly around in Build mode by holding right-click and pressing WASD</a></li>
+                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/desktop-editor/getting-started/user-interface/primary_tools#camera-speed-controls" target="_blank" rel="noopener noreferrer">Fly around in Build mode by holding right-click and pressing WASD</a></li>
                     </ul>
                     <div class="list-separator"><span class="highlight-text">and</span></div>
                     <ul class="step-links">
-                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/desktop-editor/getting-started/user-interface/operational-modes">Enter Preview mode to walk around with your avatar</a></li>
+                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/desktop-editor/getting-started/user-interface/operational-modes" target="_blank" rel="noopener noreferrer">Enter Preview mode to walk around with your avatar</a></li>
                     </ul>
                 </div>
             </div>
@@ -740,13 +745,13 @@
                     <h3 class="step-title">6. Generate a 3D Model</h3>
                     <p class="step-description">You're making great progress jumping into this new territory! Let's give it a personal touch by creating your world's very first 3D model:</p>
                     <ul class="step-links">
-                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/desktop-editor/generative-ai-creation-tools/generative-ai-mesh-generation-tool#generate-a-mesh-with-mesh-gen-11">Add a generated mesh</a></li>
-                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/desktop-editor/getting-started/user-interface/object-tools">Reposition the mesh</a></li>
+                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/desktop-editor/generative-ai-creation-tools/generative-ai-mesh-generation-tool#generate-a-mesh-with-mesh-gen-11" target="_blank" rel="noopener noreferrer">Add a generated mesh</a></li>
+                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/desktop-editor/getting-started/user-interface/object-tools" target="_blank" rel="noopener noreferrer">Reposition the mesh</a></li>
                     </ul>
                     <div class="challenge">
                         <div class="challenge-title">Challenge Yourself</div>
                         <ul class="step-links secondary">
-                            <li><a href="https://developers.meta.com/horizon-worlds/learn/videos/custom-meshes-with-genai/">Watch a video on creating meshes with GenAI and complete the Hands-on Challenge</a></li>
+                            <li><a href="https://developers.meta.com/horizon-worlds/learn/videos/custom-meshes-with-genai/" target="_blank" rel="noopener noreferrer">Watch a video on creating meshes with GenAI and complete the Hands-on Challenge</a></li>
                         </ul>
                     </div>
                 </div>
@@ -759,12 +764,12 @@
                     <h3 class="step-title">7. Generate a Skybox</h3>
                     <p class="step-description">You have great taste! Let's explore that creativity even further! We'll add some environment to your world by generating a sky:</p>
                     <ul class="step-links">
-                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/desktop-editor/generative-ai-creation-tools/generative-ai-skybox-tool">Add a generated sky</a></li>
+                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/desktop-editor/generative-ai-creation-tools/generative-ai-skybox-tool" target="_blank" rel="noopener noreferrer">Add a generated sky</a></li>
                     </ul>
                     <div class="challenge">
                         <div class="challenge-title">Challenge Yourself</div>
                         <ul class="step-links secondary">
-                            <li><a href="https://developers.meta.com/horizon-worlds/learn/videos/creating-a-custom-skybox/">Watch a video on creating skyboxes with GenAI and complete the Hands-on Challenge</a></li>
+                            <li><a href="https://developers.meta.com/horizon-worlds/learn/videos/creating-a-custom-skybox/" target="_blank" rel="noopener noreferrer">Watch a video on creating skyboxes with GenAI and complete the Hands-on Challenge</a></li>
                         </ul>
                     </div>
                 </div>
@@ -777,7 +782,7 @@
                     <h3 class="step-title">8. Publish Your First World</h3>
                     <p class="step-description">You may not realize this yet, but you are officially a <span class="highlight-text">World Creator</span>! It's time to share your awesome progress by publishing a public version of your world, making it possible for others to visit your world:</p>
                     <ul class="step-links">
-                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/save-optimize-and-publish/publish-your-world">Publish your world</a></li>
+                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/save-optimize-and-publish/publish-your-world" target="_blank" rel="noopener noreferrer">Publish your world</a></li>
                     </ul>
                 </div>
             </div>
@@ -789,7 +794,7 @@
                     <h3 class="step-title">9. Open on Mobile</h3>
                     <p class="step-description">Now you can tell your friends to look up your world name on the Meta Horizon app on their mobile device! You can find a shareable link by finding your world on the Creator Tools website, too:</p>
                     <ul class="step-links">
-                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/create-for-web-and-mobile/how-to-test-on-web-and-mobile#mobile">Open your world page on mobile</a></li>
+                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/create-for-web-and-mobile/how-to-test-on-web-and-mobile#mobile" target="_blank" rel="noopener noreferrer">Open your world page on mobile</a></li>
                     </ul>
                 </div>
             </div>
@@ -805,7 +810,7 @@
                     <h3 class="step-title">10. Create a Script</h3>
                     <p class="step-description">It's time to level up with some simple scripting! We'll be creating a simple respawn script. Let's start here:</p>
                     <ul class="step-links">
-                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/typescript/getting-started/using-typescript-in-horizon-worlds">Create a script</a></li>
+                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/typescript/getting-started/using-typescript-in-horizon-worlds" target="_blank" rel="noopener noreferrer">Create a script</a></li>
                     </ul>
                 </div>
             </div>
@@ -817,7 +822,7 @@
                     <h3 class="step-title">11. Create Custom Properties</h3>
                     <p class="step-description">Excellent work! Now let's enhance the script by adding a custom property:</p>
                     <ul class="step-links">
-                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/typescript/getting-started/typescript-components-properties-and-variables">Add an entity property called "spawnPoint"</a></li>
+                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/typescript/getting-started/typescript-components-properties-and-variables" target="_blank" rel="noopener noreferrer">Add an entity property called "spawnPoint"</a></li>
                     </ul>
                 </div>
             </div>
@@ -829,7 +834,7 @@
                     <h3 class="step-title">12. Place a Trigger Gizmo</h3>
                     <p class="step-description">You're getting the hang of this! Time to bring in the trigger gizmo:</p>
                     <ul class="step-links">
-                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/code-blocks-and-gizmos/use-the-trigger-zone">Add trigger gizmo</a></li>
+                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/code-blocks-and-gizmos/use-the-trigger-zone" target="_blank" rel="noopener noreferrer">Add trigger gizmo</a></li>
                     </ul>
                 </div>
             </div>
@@ -841,7 +846,7 @@
                     <h3 class="step-title">13. Attaching the Script to the Trigger</h3>
                     <p class="step-description">Get ready for the best part! Let's put it all together:</p>
                     <ul class="step-links">
-                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/desktop-editor/getting-started/adding-and-editing-scripts#adding-an-existing-script-to-an-entity">Attach the script to the trigger</a></li>
+                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/desktop-editor/getting-started/adding-and-editing-scripts#adding-an-existing-script-to-an-entity" target="_blank" rel="noopener noreferrer">Attach the script to the trigger</a></li>
                         <li>Drag and drop the spawn point gizmo onto the newly added entity property</li>
                         <li>Try walking into the trigger in preview mode</li>
                     </ul>
@@ -855,7 +860,7 @@
                     <h3 class="step-title">14. Create Entity</h3>
                     <p class="step-description">If you've made it this far, then you REALLY want to step your world creation skills up! Let's learn about creating empty objects:</p>
                     <ul class="step-links">
-                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/desktop-editor/hierarchy-window/hierarchy-window-overview#empty-objects">Add an empty object</a></li>
+                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/desktop-editor/hierarchy-window/hierarchy-window-overview#empty-objects" target="_blank" rel="noopener noreferrer">Add an empty object</a></li>
                     </ul>
                 </div>
             </div>
@@ -867,8 +872,8 @@
                     <h3 class="step-title">15. Adding Children</h3>
                     <p class="step-description">Very nice! Empty objects really shine when you add child objects to them. Let's turn this empty object into a ball:</p>
                     <ul class="step-links">
-                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/desktop-editor/assets/public-asset-library">Place a ball from the Public Assets into the world</a></li>
-                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/desktop-editor/hierarchy-window/hierarchy-window-overview#parent-anything-to-anything">In the hierarchy, drag and drop the ball onto the empty object to make it a child</a></li>
+                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/desktop-editor/assets/public-asset-library" target="_blank" rel="noopener noreferrer">Place a ball from the Public Assets into the world</a></li>
+                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/desktop-editor/hierarchy-window/hierarchy-window-overview#parent-anything-to-anything" target="_blank" rel="noopener noreferrer">In the hierarchy, drag and drop the ball onto the empty object to make it a child</a></li>
                     </ul>
                 </div>
             </div>
@@ -880,8 +885,8 @@
                     <h3 class="step-title">16. Enable Grab and Physics</h3>
                     <p class="step-description">How about we turn on some fun interactivity? Let's make this entity grabbable and physics-enabled:</p>
                     <ul class="step-links">
-                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/create-for-web-and-mobile/grabbable-entities/create-grabbable-entities">Set the entity's Motion property to Interactive and Interaction to Both (Grabbable and Physics)</a></li>
-                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/desktop-editor/physics#physics-settings">Adjust the physics settings to your liking</a></li>
+                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/create-for-web-and-mobile/grabbable-entities/create-grabbable-entities" target="_blank" rel="noopener noreferrer">Set the entity's Motion property to Interactive and Interaction to Both (Grabbable and Physics)</a></li>
+                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/desktop-editor/physics#physics-settings" target="_blank" rel="noopener noreferrer">Adjust the physics settings to your liking</a></li>
                     </ul>
                 </div>
             </div>
@@ -893,7 +898,7 @@
                     <h3 class="step-title">17. Modifying Grab Settings</h3>
                     <p class="step-description">The fun is just getting started! Try changing some other settings on the entity:</p>
                     <ul class="step-links">
-                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/create-for-web-and-mobile/grabbable-entities/avatar-poses">Try different avatar grip poses</a></li>
+                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/create-for-web-and-mobile/grabbable-entities/avatar-poses" target="_blank" rel="noopener noreferrer">Try different avatar grip poses</a></li>
                     </ul>
                 </div>
             </div>
@@ -905,7 +910,7 @@
                     <h3 class="step-title">18. Debugging</h3>
                     <p class="step-description">You're glowing from all of the skills you've gained! It's time to sharpen your tools by learning about debugging:</p>
                     <ul class="step-links">
-                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/desktop-editor/getting-started/editor-console">Familiarize yourself with the Console tab</a></li>
+                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/desktop-editor/getting-started/editor-console" target="_blank" rel="noopener noreferrer">Familiarize yourself with the Console tab</a></li>
                         <li>Put your skills to the test by creating another scripted trigger</li>
                         <li>On its OnPlayerEnterTrigger function, add this line of code:</li>
                     </ul>
@@ -920,12 +925,12 @@
                     <h3 class="step-title">19. Apply Custom Player Velocity</h3>
                     <p class="step-description">You should be very proud of your progress! For doing such a great job, let's have some more fun! How about we launch your avatar into the air?</p>
                     <ul class="step-links">
-                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/desktop-editor/settings-modifications/player-settings-modification">Edit the Player Settings to enable Custom Player Movement</a></li>
+                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/desktop-editor/settings-modifications/player-settings-modification" target="_blank" rel="noopener noreferrer">Edit the Player Settings to enable Custom Player Movement</a></li>
                         <li>Add this line of code to the scripted trigger's OnPlayerEnterTrigger function:</li>
                     </ul>
                     <div class="step-code">player.velocity.set(Vec3.up.mul(500))</div>
                     <ul class="step-links">
-                        <li><a href="https://developers.meta.com/horizon-worlds/reference/2.0.0/core_player#velocity">Check the API for more information on player velocity</a></li>
+                        <li><a href="https://developers.meta.com/horizon-worlds/reference/2.0.0/core_player#velocity" target="_blank" rel="noopener noreferrer">Check the API for more information on player velocity</a></li>
                     </ul>
                 </div>
             </div>
@@ -937,12 +942,12 @@
                     <h3 class="step-title">20. Create Local Script</h3>
                     <p class="step-description">What'd you think of that last section? Pretty wild stuff, huh? Now we are going to turn the difficulty up a bit. Let’s get ready to implement custom player controls. First, we need to create a Local Script. Let’s set one up now:</p>
                     <ul class="step-links">
-                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/typescript/local-scripting/getting-started-with-local-scripting">Attach a new script to the ball and set it to Local Execution Mode</a></li>
+                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/typescript/local-scripting/getting-started-with-local-scripting" target="_blank" rel="noopener noreferrer">Attach a new script to the ball and set it to Local Execution Mode</a></li>
                     </ul>
                     <div class="challenge">
                         <div class="challenge-title">Challenge Yourself</div>
                         <ul class="step-links secondary">
-                            <li><a href="https://developers.meta.com/horizon-worlds/learn/videos/sending-receiving-and-ownership-in-scripting">Watch a video on local scripting and complete the Hands-on Challenge</a></li>
+                            <li><a href="https://developers.meta.com/horizon-worlds/learn/videos/sending-receiving-and-ownership-in-scripting" target="_blank" rel="noopener noreferrer">Watch a video on local scripting and complete the Hands-on Challenge</a></li>
                         </ul>
                     </div>
                 </div>
@@ -955,12 +960,12 @@
                     <h3 class="step-title">21. Create Custom Player Control</h3>
                     <p class="step-description">You've got this! Custom player controls can only be added to local scripts. So let’s implement it into our new script:</p>
                     <ul class="step-links">
-                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/create-for-web-and-mobile/typescript-apis-for-mobile/custom-input-api">Add PlayerControls to the ball script</a></li>
+                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/create-for-web-and-mobile/typescript-apis-for-mobile/custom-input-api" target="_blank" rel="noopener noreferrer">Add PlayerControls to the ball script</a></li>
                         <li>In the button callback, add the following line:</li>
                     </ul>
                     <div class="step-code">this.entity.as(GrabbableEntity).forceHold(this.entity.owner.get(), Handedness.Right, true)</div>
                     <ul class="step-links">
-                        <li><a href="https://developers.meta.com/horizon-worlds/reference/2.0.0/core_grabbableentity#forcehold">Check the API for more information on forceHold</a></li>
+                        <li><a href="https://developers.meta.com/horizon-worlds/reference/2.0.0/core_grabbableentity#forcehold" target="_blank" rel="noopener noreferrer">Check the API for more information on forceHold</a></li>
                     </ul>
                 </div>
             </div>
@@ -977,7 +982,7 @@
                                 <li>Type a tag name, like "ball" into the tag input</li>
                             </ul>
                         </li>
-                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/typescript/gameplay-tags-api/introduction-to-gameplay-tags">Add the tag to the ball entity</a></li>
+                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/typescript/gameplay-tags-api/introduction-to-gameplay-tags" target="_blank" rel="noopener noreferrer">Add the tag to the ball entity</a></li>
                     </ul>
                 </div>
             </div>
@@ -989,8 +994,8 @@
                     <h3 class="step-title">23. Create UI</h3>
                     <p class="step-description">You're leveling up like a <span class="highlight-text">champ</span>! Let’s set up your player user interface so you can keep score:</p>
                     <ul class="step-links">
-                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/desktop-editor/custom-ui/creating-a-custom-ui-panel">Add Custom UI Gizmo</a></li>
-                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/desktop-editor/custom-ui/noninteractive-custom-ui-screen-overlay">Set the Custom UI Display Mode property to Screen Overlay</a></li>
+                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/desktop-editor/custom-ui/creating-a-custom-ui-panel" target="_blank" rel="noopener noreferrer">Add Custom UI Gizmo</a></li>
+                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/desktop-editor/custom-ui/noninteractive-custom-ui-screen-overlay" target="_blank" rel="noopener noreferrer">Set the Custom UI Display Mode property to Screen Overlay</a></li>
                     </ul>
                 </div>
             </div>
@@ -1002,8 +1007,8 @@
                     <h3 class="step-title">24. Create UI Binding</h3>
                     <p class="step-description">You’re doing great! Let’s set the UI up to show player score:</p>
                     <ul class="step-links">
-                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/typescript/getting-started/modules-and-global-functions">Create a module file</a></li>
-                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/desktop-editor/custom-ui/building-dynamic-custom-ui#updating-ui-with-binding">Add a string binding to the module file</a>
+                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/typescript/getting-started/modules-and-global-functions" target="_blank" rel="noopener noreferrer">Create a module file</a></li>
+                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/desktop-editor/custom-ui/building-dynamic-custom-ui#updating-ui-with-binding" target="_blank" rel="noopener noreferrer">Add a string binding to the module file</a>
                             <ul>
                                 <li>Import the binding into your UI script and your Object Trigger script</li>
                                 <li>Add a score variable to the Object Trigger class</li>
@@ -1015,7 +1020,7 @@
                     <div class="challenge">
                         <div class="challenge-title">Challenge Yourself</div>
                         <ul class="step-links secondary">
-                            <li><a href="https://developers.meta.com/horizon-worlds/learn/videos/building-game-elements-with-custom-uis">Watch a video on interactive UIs and complete the Hands-on Challenge</a></li>
+                            <li><a href="https://developers.meta.com/horizon-worlds/learn/videos/building-game-elements-with-custom-uis" target="_blank" rel="noopener noreferrer">Watch a video on interactive UIs and complete the Hands-on Challenge</a></li>
                         </ul>
                     </div>
                 </div>
@@ -1028,10 +1033,10 @@
                     <h3 class="step-title">25. Use Player Persistence</h3>
                     <p class="step-description">You're getting the hang of this! Let’s persist the score you already show in your UI so players keep progress between visits:</p>
                     <ul class="step-links">
-                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/typescript/getting-started/persistent-variables-v2">Create a Variable Group with a number Player Persistent Variable (PPV)</a></li>
+                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/typescript/getting-started/persistent-variables-v2" target="_blank" rel="noopener noreferrer">Create a Variable Group with a number Player Persistent Variable (PPV)</a></li>
                         <li>In your Object Trigger Script (the one that increments score)
                             <ul>
-                                <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/typescript/getting-started/persistent-variables-v2#setplayervariable">Set the PPV whenever you change the score binding</a></li>
+                                <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/typescript/getting-started/persistent-variables-v2#setplayervariable" target="_blank" rel="noopener noreferrer">Set the PPV whenever you change the score binding</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -1045,8 +1050,8 @@
                     <h3 class="step-title">26. Create a Quest</h3>
                     <p class="step-description">Now that you are a programmer, it’s time to become a <span class="highlight-text">Pro Gamer</span>! Let’s create a score milestone quest that uses your existing PPV and leaderboard:</p>
                     <ul class="step-links">
-                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/desktop-editor/quests-leaderboards-and-variable-groups/quests-overview">Learn about Quests and how they motivate players</a></li>
-                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/desktop-editor/quests-leaderboards-and-variable-groups/quests-overview">Create Quests in the Creator Tools</a>
+                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/desktop-editor/quests-leaderboards-and-variable-groups/quests-overview" target="_blank" rel="noopener noreferrer">Learn about Quests and how they motivate players</a></li>
+                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/desktop-editor/quests-leaderboards-and-variable-groups/quests-overview" target="_blank" rel="noopener noreferrer">Create Quests in the Creator Tools</a>
                             <ul>
                                 <li>Define a quest like “Score 10 points”</li>
                                 <li>Link the quest’s progress to your score PPV so it auto-completes when the value reaches the target</li>
@@ -1069,7 +1074,7 @@
                                 <li>When the score changes, check to see if score reached <code>maxScore</code></li>
                                 <li>If they are equal
                                     <ul>
-                                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/typescript/events/broadcast-events">Send a local broadcast event</a></li>
+                                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/typescript/events/broadcast-events" target="_blank" rel="noopener noreferrer">Send a local broadcast event</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -1089,7 +1094,7 @@
                             <ul>
                                 <li>Name the script <strong>EffectsManager</strong></li>
                                 <li>Add <code>sfx</code> and <code>vfx</code> properties</li>
-                                <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/typescript/events/broadcast-events#subscribing-to-broadcast-events">Add a listener for the local broadcast event</a></li>
+                                <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/typescript/events/broadcast-events#subscribing-to-broadcast-events" target="_blank" rel="noopener noreferrer">Add a listener for the local broadcast event</a></li>
                             </ul>
                         </li>
                         <li>Add a generated sound effect to the world
@@ -1097,7 +1102,7 @@
                                 <li>Wire it up to the EffectsManager <code>sfx</code> property</li>
                             </ul>
                         </li>
-                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/desktop-editor/assets/public-asset-library">Search the Public Assets for an effect</a>
+                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/desktop-editor/assets/public-asset-library" target="_blank" rel="noopener noreferrer">Search the Public Assets for an effect</a>
                             <ul>
                                 <li>Wire it up to the EffectsManager <code>vfx</code> property</li>
                             </ul>
@@ -1127,7 +1132,7 @@
                         <li>Attach a new script to a new Empty Object
                             <ul>
                                 <li>Name the script <strong>GameManager</strong></li>
-                                <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/typescript/events/broadcast-events#subscribing-to-broadcast-events">Add a listener for the local broadcast event</a></li>
+                                <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/typescript/events/broadcast-events#subscribing-to-broadcast-events" target="_blank" rel="noopener noreferrer">Add a listener for the local broadcast event</a></li>
                                 <li>In the event callback, add the following line:</li>
                             </ul>
                         </li>
@@ -1135,7 +1140,7 @@
                     <div class="step-code">this.async.setTimeout(() =&gt; { /*Add Reset Logic Here*/ }, 3000);</div>
                     <ul class="step-links">
                         <li>The reset logic should reset both the UI binding and <code>gameData.score</code></li>
-                        <li><a href="https://developers.meta.com/horizon-worlds/reference/2.0.0/core_component#properties">Check the API for more information on the Component’s async property</a></li>
+                        <li><a href="https://developers.meta.com/horizon-worlds/reference/2.0.0/core_component#properties" target="_blank" rel="noopener noreferrer">Check the API for more information on the Component’s async property</a></li>
                     </ul>
                 </div>
             </div>
@@ -1147,7 +1152,7 @@
                     <h3 class="step-title">30. Republish Your World</h3>
                     <p class="step-description">Amazing job! Ship your latest changes so others can try them:</p>
                     <ul class="step-links">
-                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/save-optimize-and-publish/publish-your-world">Publish your world again</a></li>
+                        <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/save-optimize-and-publish/publish-your-world" target="_blank" rel="noopener noreferrer">Publish your world again</a></li>
                     </ul>
                 </div>
             </div>
@@ -1158,11 +1163,22 @@
             <div class="end-circle">
                 <h2>🎉 Congratulations!<br><br>You've completed the learning path!</h2>
             </div>
-            <p class="intro-text">Keep building amazing Worlds! 🌟</p>
+            
+            <!-- What's Next Section -->
+        <section class="whats-next intro-section" aria-labelledby="whats-next-title">
+                <h3 id="whats-next-title" class="step-title" style="text-align:center; padding-top:0; margin-bottom:16px;">What’s next</h3>
+                <ul class="step-links" style="max-width:720px; margin:0 auto; text-align:left;">
+            <li><span class="item-icon" aria-hidden="true">💬</span><a href="https://communityforums.atmeta.com/category/Meta_Horizon_Creator_Forums" target="_blank" rel="noopener noreferrer">Creator Forum</a> – Connect with other creators to ask questions and share your work</li>
+            <li><span class="item-icon" aria-hidden="true">📚</span><a href="https://developers.meta.com/horizon-worlds/learn" target="_blank" rel="noopener noreferrer">Learn Homepage</a> – Find more Meta-made documentation and tutorials for learning</li>
+            <li><span class="item-icon" aria-hidden="true">▶️</span><a href="https://www.youtube.com/@metahorizoncreatorprogram" target="_blank" rel="noopener noreferrer">MHCP YouTube</a> – Watch tutorials, learn about the latest Worlds features, and hear directly from Meta product teams</li>
+            <li><span class="item-icon" aria-hidden="true">📖</span><a href="https://github.com/MHCPCreators/horizonCreatorManual" target="_blank" rel="noopener noreferrer">Creator Manual</a> – Explore the in-depth creator-made technical manual covering all major Worlds systems</li>
+                </ul>
+                <p style="text-align:center; margin-top:16px;">Keep building amazing Worlds! 🌟</p>
+            </section>
             <div class="end-links" aria-label="Helpful links">
                 <a class="end-link" href="#top">Back to top</a>
                 <span class="dot">•</span>
-                <a class="end-link" href="https://mhcpcreators.github.io/worlds-documentation/" target="_blank" rel="noopener">Learn more with MHCP</a>
+                <a class="end-link" href="https://mhcpcreators.github.io/worlds-documentation/" target="_blank" rel="noopener noreferrer">Learn more with MHCP</a>
                 <span class="dot">•</span>
                 <a id="reset-completed" class="end-link" href="#">Reset Completed</a>
             </div>
