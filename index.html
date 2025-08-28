@@ -583,6 +583,43 @@
         .end-links { text-align: center; margin: 8px 0 40px 0; }
         .end-links .end-link { color: #ffffff; font-weight: 600; text-decoration: underline; }
         .end-links .dot { color: rgba(255,255,255,0.85); margin: 0 8px; }
+
+        /* Step completion toggle */
+        .step-content { position: relative; }
+        .complete-toggle {
+            /* Place at the bottom within normal flow and center it */
+            margin: 16px auto 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: fit-content;
+            gap: 8px;
+            background: transparent;
+            border: none;
+            box-shadow: none;
+            border-radius: 999px;
+            padding: 0;
+            font-size: 0.9rem;
+            color: #2d3436;
+            cursor: pointer;
+            user-select: none;
+        }
+        .complete-toggle input[type="checkbox"] {
+            width: 18px; height: 18px;
+            accent-color: #2ecc71;
+            cursor: pointer;
+        }
+        .step-content.completed {
+            border-color: rgba(46, 204, 113, 0.45);
+            box-shadow: 0 0 0 2px rgba(46, 204, 113, 0.18), 0 8px 28px rgba(31, 38, 135, 0.28);
+        }
+        .step-content.completed .step-title::after {
+            content: '✓ Completed';
+            margin-left: 8px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #2ecc71;
+        }
     </style>
 </head>
 <body id="top">
@@ -1126,6 +1163,8 @@
                 <a class="end-link" href="#top">Back to top</a>
                 <span class="dot">•</span>
                 <a class="end-link" href="https://mhcpcreators.github.io/worlds-documentation/" target="_blank" rel="noopener">Learn more with MHCP</a>
+                <span class="dot">•</span>
+                <a id="reset-completed" class="end-link" href="#">Reset Completed</a>
             </div>
         </div>
     </div>
@@ -1230,6 +1269,83 @@
 
     window.addEventListener('hashchange', initFromHash);
     window.addEventListener('load', initFromHash);
+})();
+
+// Step completion persistence: add a "Done" checkbox per step and persist to localStorage
+(() => {
+    const STORAGE_KEY = 'worlds101:steps:v1';
+    const steps = Array.from(document.querySelectorAll('.timeline .step'));
+    if (!steps.length) return;
+
+    function getStepNumber(stepEl) {
+        const numEl = stepEl.querySelector('.step-number');
+        if (numEl && numEl.textContent) {
+            const n = parseInt(numEl.textContent.trim(), 10);
+            if (!isNaN(n)) return n;
+        }
+        const title = stepEl.querySelector('.step-title')?.textContent || '';
+        const m = title.match(/^(\s*)(\d+)/);
+        return m ? parseInt(m[2], 10) : null;
+    }
+
+    let state = {};
+    try { state = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}') || {}; }
+    catch { state = {}; }
+
+    steps.forEach((step, idx) => {
+        const content = step.querySelector('.step-content');
+        if (!content) return;
+        const n = getStepNumber(step) ?? (idx + 1);
+        const id = `step-${n}`;
+
+        // Create the toggle UI
+        const label = document.createElement('label');
+        label.className = 'complete-toggle';
+    label.setAttribute('aria-label', `Mark step ${n} Completed`);
+
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.className = 'complete-checkbox';
+        checkbox.checked = !!state[id];
+
+    const text = document.createElement('span');
+    text.textContent = 'Mark Completed';
+
+        label.appendChild(checkbox);
+        label.appendChild(text);
+        content.appendChild(label);
+
+        function applyVisual() {
+            content.classList.toggle('completed', checkbox.checked);
+        }
+        applyVisual();
+
+        checkbox.addEventListener('change', () => {
+            state[id] = checkbox.checked;
+            try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch {}
+            applyVisual();
+        });
+    });
+})();
+
+// Reset progress: clears saved completion state and updates UI
+(() => {
+    const RESET_ID = 'reset-completed';
+    const STORAGE_KEY = 'worlds101:steps:v1';
+    const link = document.getElementById(RESET_ID);
+    if (!link) return;
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        try { localStorage.removeItem(STORAGE_KEY); } catch {}
+        // Uncheck all checkboxes and remove completed styling
+        document.querySelectorAll('.complete-checkbox').forEach(cb => {
+            if (cb instanceof HTMLInputElement) {
+                cb.checked = false;
+                const content = cb.closest('.step-content');
+                content && content.classList.remove('completed');
+            }
+        });
+    });
 })();
 </script>
 </html>
