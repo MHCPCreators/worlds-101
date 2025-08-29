@@ -570,7 +570,7 @@
                 max-width: 100%;
                 margin-left: auto;
                 margin-right: auto;
-                justify-content: flex-start;
+                justify-content: center;
                 overflow-x: auto;
                 overscroll-behavior-x: contain;
                 -webkit-overflow-scrolling: touch;
@@ -578,7 +578,7 @@
                 scroll-snap-type: x proximity;
             }
             .sticky-nav .nav-link {
-                font-size: 0.9rem;
+                font-size: 0.8rem;
                 padding: 6px 8px;
                 flex: 0 0 auto;
                 scroll-snap-align: center;
@@ -592,12 +592,26 @@
             /* Save space on very small screens */
             .sticky-nav .dot { display: none; }
             .sticky-nav { gap: 4px; padding: 8px; }
-            .sticky-nav .nav-link { font-size: 0.85rem; padding: 6px 8px; }
+            .sticky-nav .nav-link { font-size: 0.75rem; padding: 6px 8px; }
         }
         /* End links below the completion banner */
     .end-links { text-align: center; margin: 8px 0 40px 0; }
     .end-links .end-link { color: #0984e3; font-weight: 600; text-decoration: underline; margin: 0 16px; }
     .end-links .dot { color: #636e72; margin: 0 8px; }
+
+        @media (max-width: 768px) {
+            .end-links .end-link { 
+                font-size: 0.9rem; 
+                margin: 0 12px; 
+            }
+        }
+
+        @media (max-width: 480px) {
+            .end-links .end-link { 
+                font-size: 0.8rem; 
+                margin: 0 8px; 
+            }
+        }
 
         /* Step completion toggle */
         .step-content { position: relative; }
@@ -632,6 +646,61 @@
             font-size: 0.85rem;
             font-weight: 700;
             color: #2ecc71;
+        }
+
+        /* Progress Bar */
+        .progress-bar-container {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            padding: 8px 16px 4px 16px;
+        }
+        .progress-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 6px;
+            font-size: 0.75rem;
+            color: rgb(70, 90, 105);
+        }
+        .progress-text {
+            font-weight: 600;
+        }
+        .progress-text.completed {
+            color: #2ecc71;
+        }
+        .progress-bar {
+            width: 100%;
+            height: 4px;
+            position: relative;
+            overflow: hidden;
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 2px;
+        }
+        .progress-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #0064e0, #00a6fb, #0099ff, #7c4dff);
+            transition: width 0.3s ease, background 0.3s ease;
+            border-radius: 2px;
+        }
+        .progress-fill.completed {
+            background: linear-gradient(90deg, #2ecc71, #27ae60, #2ecc71);
+        }
+        @media (max-width: 768px) {
+            .progress-info {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 2px;
+            }
+            .section-progress {
+                font-size: 0.7rem;
+            }
         }
     </style>
 </head>
@@ -1186,6 +1255,16 @@
             </div>
         </div>
     </div>
+
+    <!-- Progress Bar -->
+    <div class="progress-bar-container">
+        <div class="progress-info">
+            <span class="progress-text">Progress: 0/30 steps</span>
+        </div>
+        <div class="progress-bar">
+            <div class="progress-fill"></div>
+        </div>
+    </div>
 </body>
 <script>
 // Scroll-spy: highlight nav category based on the step in view
@@ -1208,12 +1287,24 @@
 
     function categoryForStep(n) {
         if (!n) return null;
-        if (n <= 3) return 'tools-account';
-        if (n <= 9) return 'world-assets';
-        return 'code-systems';
+        // Find which section this step belongs to by checking the DOM structure
+        const stepEl = steps.find(step => getStepNumber(step) === n);
+        if (!stepEl) return null;
+        
+        // Walk up the DOM to find the containing section
+        let current = stepEl;
+        while (current && current !== document.body) {
+            if (current.classList && current.classList.contains('category')) {
+                return current.id;
+            }
+            current = current.parentElement;
+        }
+        return null;
     }
 
     let activeId = null;
+    // Make activeId globally accessible
+    window.activeId = null;
     const visibleSteps = new Map(); // stepEl -> intersectionRatio
     const io = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -1223,17 +1314,22 @@
                 visibleSteps.delete(entry.target);
             }
         });
-        updateActive();
+        // Debounce updates to prevent rapid firing
+        clearTimeout(updateActive.debounceTimeout);
+        updateActive.debounceTimeout = setTimeout(updateActive, 100);
     }, {
         root: null,
-        threshold: [0, 0.25, 0.5, 0.75, 1],
-        // Bias towards elements near the top by shrinking bottom
-        rootMargin: '0px 0px -40% 0px'
+        threshold: [0, 0.1, 0.25, 0.5, 0.75, 1],
+        // Adjust margins for better mobile responsiveness  
+        rootMargin: '-10% 0px -50% 0px'
     });
 
     steps.forEach(s => io.observe(s));
 
     function updateActive() {
+        // Don't update if user just manually navigated
+        if (manualNavigation) return;
+        
         if (visibleSteps.size === 0) return;
         let best = null, bestRatio = -1, bestTop = Infinity;
         visibleSteps.forEach((ratio, el) => {
@@ -1247,26 +1343,45 @@
         const id = categoryForStep(n);
         if (id && id !== activeId) {
             activeId = id;
+            window.activeId = id; // Update global reference
             navLinks.forEach(a => {
                 const isActive = a.getAttribute('href') === '#' + id;
                 a.classList.toggle('active', isActive);
                 if (isActive) a.setAttribute('aria-current', 'page');
                 else a.removeAttribute('aria-current');
             });
+            // Update progress bar when section changes
+            if (typeof updateProgressBar === 'function') {
+                updateProgressBar();
+            }
         }
     }
 
-    // On nav click, set active immediately
+    // On nav click, set active immediately and add a delay before re-enabling auto-update
+    let manualNavigation = false;
     navLinks.forEach(a => {
-        a.addEventListener('click', () => {
+        a.addEventListener('click', (e) => {
             const id = a.getAttribute('href').slice(1);
             activeId = id;
+            window.activeId = id; // Update global reference
+            manualNavigation = true; // Temporarily disable auto-updates
+            
             navLinks.forEach(l => {
                 const isActive = l === a;
                 l.classList.toggle('active', isActive);
                 if (isActive) l.setAttribute('aria-current', 'page');
                 else l.removeAttribute('aria-current');
             });
+            
+            // Update progress bar when nav is clicked
+            if (typeof updateProgressBar === 'function') {
+                updateProgressBar();
+            }
+            
+            // Re-enable auto-updates after scrolling has settled
+            setTimeout(() => {
+                manualNavigation = false;
+            }, 1000);
         });
     });
 
@@ -1283,11 +1398,117 @@
         } else {
             updateActive();
         }
+        // Update progress bar after initialization
+        if (typeof updateProgressBar === 'function') {
+            updateProgressBar();
+        }
     }
 
     window.addEventListener('hashchange', initFromHash);
     window.addEventListener('load', initFromHash);
 })();
+
+// Global progress bar update function
+function updateProgressBar() {
+    const STORAGE_KEY = 'worlds101:steps:v1';
+    let state = {};
+    try { state = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}') || {}; }
+    catch { state = {}; }
+    
+    const steps = Array.from(document.querySelectorAll('.timeline .step'));
+    const totalSteps = steps.length;
+    const completedSteps = Object.values(state).filter(Boolean).length;
+    
+    // Dynamically calculate section progress based on actual DOM structure
+    const sectionProgress = {
+        'tools-account': { completed: 0, total: 0, name: 'Tools & Account' },
+        'world-assets': { completed: 0, total: 0, name: 'World & Assets' },
+        'code-systems': { completed: 0, total: 0, name: 'Code & Systems' }
+    };
+    
+    // Helper function to get step number from step element
+    function getStepNumber(stepEl) {
+        const numEl = stepEl.querySelector('.step-number');
+        if (numEl && numEl.textContent) {
+            const n = parseInt(numEl.textContent.trim(), 10);
+            if (!isNaN(n)) return n;
+        }
+        const title = stepEl.querySelector('.step-title')?.textContent || '';
+        const m = title.match(/^(\s*)(\d+)/);
+        return m ? parseInt(m[2], 10) : null;
+    }
+    
+    // Helper function to determine category for a step number
+    function categoryForStep(n) {
+        if (!n) return null;
+        // Find which section this step belongs to by checking the DOM structure
+        const stepEl = steps.find(step => getStepNumber(step) === n);
+        if (!stepEl) return null;
+        
+        // Walk up the DOM to find the containing section
+        let current = stepEl;
+        while (current && current !== document.body) {
+            if (current.classList && current.classList.contains('category')) {
+                return current.id;
+            }
+            current = current.parentElement;
+        }
+        return null;
+    }
+    
+    // Count total steps per section by examining DOM structure
+    steps.forEach(stepEl => {
+        const stepNum = getStepNumber(stepEl);
+        const category = categoryForStep(stepNum);
+        if (category && sectionProgress[category]) {
+            sectionProgress[category].total++;
+        }
+    });
+    
+    // Count completed steps per section
+    Object.keys(state).forEach(stepId => {
+        if (state[stepId]) {
+            const stepNum = parseInt(stepId.replace('step-', ''));
+            const category = categoryForStep(stepNum);
+            if (category && sectionProgress[category]) {
+                sectionProgress[category].completed++;
+            }
+        }
+    });
+    
+    // Determine current section in view (use the activeId from scroll-spy or default)
+    const currentSection = window.activeId || 'tools-account';
+    const currentSectionData = sectionProgress[currentSection];
+    
+    // Calculate progress percentage for current section
+    const sectionPercentage = currentSectionData.total > 0 ? 
+        (currentSectionData.completed / currentSectionData.total) * 100 : 0;
+    
+    // Update progress bar to show current section progress
+    const progressFill = document.querySelector('.progress-fill');
+    if (progressFill) {
+        progressFill.style.width = `${sectionPercentage}%`;
+        
+        // Add completed class when section is 100% done
+        if (currentSectionData.completed === currentSectionData.total && currentSectionData.total > 0) {
+            progressFill.classList.add('completed');
+        } else {
+            progressFill.classList.remove('completed');
+        }
+    }
+    
+    // Update progress text to show current section
+    const progressText = document.querySelector('.progress-text');
+    if (progressText) {
+        if (currentSectionData.completed === currentSectionData.total && currentSectionData.total > 0) {
+            progressText.textContent = `${currentSectionData.name}: ✓ Completed (${currentSectionData.completed}/${currentSectionData.total})`;
+            progressText.classList.add('completed');
+        } else {
+            progressText.textContent = `${currentSectionData.name}: ${currentSectionData.completed}/${currentSectionData.total} steps`;
+            progressText.classList.remove('completed');
+        }
+    }
+}
 
 // Step completion persistence: add a "Done" checkbox per step and persist to localStorage
 (() => {
@@ -1342,8 +1563,12 @@
             state[id] = checkbox.checked;
             try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch {}
             applyVisual();
+            updateProgressBar();
         });
     });
+
+    // Initial progress bar update
+    updateProgressBar();
 })();
 
 // Reset progress: clears saved completion state and updates UI
@@ -1363,6 +1588,8 @@
                 content && content.classList.remove('completed');
             }
         });
+        // Update progress bar after reset
+        updateProgressBar();
     });
 })();
 </script>
