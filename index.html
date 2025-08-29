@@ -7,6 +7,14 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <style>
+        /* Try to use Optimistic if available on the system */
+        @font-face {
+            font-family: 'Optimistic';
+            src: local('Optimistic'), local('Optimistic Regular'), local('Optimistic Text'), local('OptimisticText-Regular'), local('Optimistic Display');
+            font-weight: 100 900;
+            font-style: normal;
+            font-display: swap;
+        }
         * {
             margin: 0;
             padding: 0;
@@ -14,9 +22,9 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: #333;
+            font-family: 'Optimistic', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: rgba(255, 255, 255, 0.95);
+            color: rgb(70, 90, 105);
             line-height: 1.6;
             padding: 20px 0;
             min-height: 100vh;
@@ -44,7 +52,7 @@
             width: 4px;
             top: var(--start-size);
             height: calc(100% - var(--start-size) - var(--end-size));
-            background: rgba(255, 255, 255, 0.3);
+            background: #bdc0c4;
             border-radius: 2px;
             z-index: 1;
         }
@@ -54,29 +62,29 @@
             max-width: 720px;
             min-height: var(--start-size);
             border-radius: 24px;
-            background: linear-gradient(135deg, #ff6b6b, #feca57);
+            background-image: url('images/meta-gradient_light_fluid_fade-blue_16_9.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 24px 28px;
             margin: 0 auto 40px auto;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             position: relative;
             z-index: 5;
         }
 
         .start-circle h1, .end-circle h2 {
-            color: white;
+            color: rgb(70, 90, 105);
             text-align: center;
             font-size: 1.4rem;
             line-height: 1.4;
             font-weight: bold;
             padding: 0;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
 
         .end-circle {
-            background: linear-gradient(135deg, #48cae4, #0077b6);
             margin-top: 40px;
             min-height: var(--end-size);
         }
@@ -92,13 +100,12 @@
         }
 
         .step-content {
-            background: rgba(255, 255, 255, 0.95);
+            background: #f2f4f7;
             backdrop-filter: blur(10px);
             border-radius: 20px;
             padding: 25px;
             margin: 0;
-            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
-            border: 1px solid rgba(255, 255, 255, 0.18);
+            border: none;
             position: relative;
             grid-column: 3;
         }
@@ -114,7 +121,6 @@
             justify-content: center;
             font-weight: bold;
             font-size: 1.1rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
             grid-column: 2;
             justify-self: center;
             z-index: 3;
@@ -126,7 +132,7 @@
         }
 
         .step-title {
-            color: #2d3436;
+            color: rgb(70, 90, 105);
             font-size: 1.4rem;
             font-weight: bold;
             margin-bottom: 15px;
@@ -134,7 +140,7 @@
         }
 
         .step-description {
-            color: #636e72;
+            color: rgb(70, 90, 105);
             font-size: 1rem;
             margin-bottom: 15px;
             text-align: left;
@@ -180,14 +186,14 @@
         }
 
         .step-links a {
-            color: #0984e3;
+            color: rgb(0, 100, 224);
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s ease;
+            transition: text-decoration 0.3s ease;
         }
 
         .step-links a:hover {
-            color: #74b9ff;
+            color: rgb(0, 100, 224);
             text-decoration: underline;
         }
 
@@ -200,7 +206,7 @@
         .list-separator {
             text-align: center;
             margin: 6px 0 8px 0;
-            color: #636e72;
+            color: rgb(70, 90, 105);
             font-weight: 600;
         }
 
@@ -213,7 +219,6 @@
             font-size: 0.9rem;
             margin: 10px 0;
             border-left: 4px solid #0984e3; /* accent */
-            box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06);
             overflow-x: auto;
             white-space: pre; /* preserve formatting */
         }
@@ -231,7 +236,7 @@
         /* Step subtitles and secondary lists */
         .step-subtitle {
             font-weight: 600;
-            color: #2d3436;
+            color: rgb(70, 90, 105);
             margin: 10px 0 8px 0;
         }
         .step-links.secondary {
@@ -247,7 +252,6 @@
             background: rgba(9, 132, 227, 0.04);
             border: 1px solid rgba(9, 132, 227, 0.18);
             border-left: 4px solid #0984e3;
-            box-shadow: none; /* remove pop */
         }
         .challenge::before { content: none; }
         .challenge-title {
@@ -267,7 +271,6 @@
                 height: 70px;
                 font-size: 1.3rem;
                 border-radius: 20px;
-                box-shadow: 0 6px 20px rgba(0,0,0,0.25);
             }
             /* Center steps on the vertical line for desktop */
             .step { display: block; }
@@ -351,7 +354,7 @@
         }
 
         .highlight-text {
-            background: linear-gradient(135deg, #fd79a8, #fdcb6e);
+            background: linear-gradient(135deg, #0064e0, #00a6fb, #0099ff, #7c4dff);
             background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -367,20 +370,27 @@
         }
 
         .intro-section {
-            background: rgba(255, 255, 255, 0.95);
+            background: #f2f4f7;
             backdrop-filter: blur(10px);
             border-radius: 25px;
             padding: 40px;
             margin-bottom: 60px;
-            box-shadow: 0 15px 35px rgba(31, 38, 135, 0.37);
             border: 1px solid rgba(255, 255, 255, 0.18);
             text-align: center;
+        }
+    /* Keep text readable inside white cards */
+    .intro-section, .step-content { color: rgb(70, 90, 105); }
+
+        /* What's Next section should appear above the timeline line */
+        .whats-next {
+            position: relative;
+            z-index: 4;
         }
 
         .main-title {
             font-size: 3rem;
             font-weight: bold;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #0064e0, #00a6fb, #0099ff, #7c4dff);
             background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -389,14 +399,14 @@
 
         .subtitle {
             font-size: 1.3rem;
-            color: #636e72;
+            color: rgb(70, 90, 105);
             margin-bottom: 30px;
             font-weight: 300;
         }
 
         .intro-content p {
             font-size: 1.1rem;
-            color: #2d3436;
+            color: rgb(70, 90, 105);
             line-height: 1.7;
             margin-bottom: 30px;
         }
@@ -422,14 +432,14 @@
         }
 
         .feature h3 {
-            color: #2d3436;
+            color: rgb(70, 90, 105);
             font-size: 1.2rem;
             margin-bottom: 10px;
             font-weight: 600;
         }
 
         .feature p {
-            color: #636e72;
+            color: rgb(70, 90, 105);
             font-size: 0.95rem;
             margin-bottom: 0 !important;
         }
@@ -437,7 +447,7 @@
         .journey-text {
             font-size: 1.2rem !important;
             font-weight: 500;
-            background: linear-gradient(135deg, #fd79a8, #fdcb6e);
+            background: linear-gradient(135deg, #0064e0, #00a6fb, #0099ff, #7c4dff);
             background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -512,30 +522,28 @@
             gap: 10px;
             background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(0,0,0,0.05);
+            border: none;
             border-radius: 999px;
             padding: 10px 14px;
             margin: -10px auto 16px auto;
             width: fit-content;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
         }
         .sticky-nav .nav-link {
-            color: #2d3436;
+            color: #0064E0;
             text-decoration: none;
             font-weight: 600;
             font-size: 0.95rem;
             padding: 6px 10px;
             border-radius: 8px;
-            transition: background 0.2s ease, color 0.2s ease;
             white-space: nowrap;
         }
         .sticky-nav .nav-link:hover {
-            background: rgba(116, 185, 255, 0.2);
-            color: #0984e3;
+            background: #0064E0;
+            color: white;
         }
         .sticky-nav .nav-link.active,
         .sticky-nav .nav-link[aria-current="page"] {
-            background: #0984e3;
+            background: #0064E0;
             color: #fff;
         }
         .sticky-nav .dot { color: #95a5a6; }
@@ -587,27 +595,26 @@
             .sticky-nav .nav-link { font-size: 0.85rem; padding: 6px 8px; }
         }
         /* End links below the completion banner */
-        .end-links { text-align: center; margin: 8px 0 40px 0; }
-        .end-links .end-link { color: #ffffff; font-weight: 600; text-decoration: underline; }
-        .end-links .dot { color: rgba(255,255,255,0.85); margin: 0 8px; }
+    .end-links { text-align: center; margin: 8px 0 40px 0; }
+    .end-links .end-link { color: #0984e3; font-weight: 600; text-decoration: underline; margin: 0 16px; }
+    .end-links .dot { color: #636e72; margin: 0 8px; }
 
         /* Step completion toggle */
         .step-content { position: relative; }
         .complete-toggle {
             /* Place at the bottom within normal flow and center it */
-            margin: 16px auto 0;
+            margin: 16px -25px -25px -25px;
             display: flex;
             align-items: center;
             justify-content: center;
-            width: fit-content;
+            width: calc(100% + 50px);
             gap: 8px;
-            background: transparent;
+            background: rgb(222, 227, 233);
             border: none;
-            box-shadow: none;
-            border-radius: 999px;
-            padding: 0;
+            border-radius: 0 0 20px 20px;
+            padding: 16px 25px;
             font-size: 0.9rem;
-            color: #2d3436;
+            color: rgb(70, 90, 105);
             cursor: pointer;
             user-select: none;
         }
@@ -617,8 +624,7 @@
             cursor: pointer;
         }
         .step-content.completed {
-            border-color: rgba(46, 204, 113, 0.45);
-            box-shadow: 0 0 0 2px rgba(46, 204, 113, 0.18), 0 8px 28px rgba(31, 38, 135, 0.28);
+            border: 1px solid rgba(46, 204, 113, 0.45);
         }
         .step-content.completed .step-title::after {
             content: '✓ Completed';
@@ -644,9 +650,7 @@
         <!-- Sticky Category Navigation -->
         <nav class="sticky-nav" aria-label="Section navigation">
             <a class="nav-link" href="#tools-account">Tools &amp; Account</a>
-            <span class="dot">•</span>
             <a class="nav-link" href="#world-assets">World &amp; Assets</a>
-            <span class="dot">•</span>
             <a class="nav-link" href="#code-systems">Code &amp; Systems</a>
         </nav>
 
@@ -1173,13 +1177,11 @@
             <li><span class="item-icon" aria-hidden="true">▶️</span><a href="https://www.youtube.com/@metahorizoncreatorprogram" target="_blank" rel="noopener noreferrer">MHCP YouTube</a> – Watch tutorials, learn about the latest Worlds features, and hear directly from Meta product teams</li>
             <li><span class="item-icon" aria-hidden="true">📖</span><a href="https://github.com/MHCPCreators/horizonCreatorManual" target="_blank" rel="noopener noreferrer">Creator Manual</a> – Explore the in-depth creator-made technical manual covering all major Worlds systems</li>
                 </ul>
-                <p style="text-align:center; margin-top:16px;">Keep building amazing Worlds! 🌟</p>
+                <p style="text-align:center; margin-top:16px;"><span class="highlight-text">Keep building amazing Worlds!</span> 🌟</p>
             </section>
             <div class="end-links" aria-label="Helpful links">
                 <a class="end-link" href="#top">Back to top</a>
-                <span class="dot">•</span>
                 <a class="end-link" href="https://mhcpcreators.github.io/worlds-documentation/" target="_blank" rel="noopener noreferrer">Learn more with MHCP</a>
-                <span class="dot">•</span>
                 <a id="reset-completed" class="end-link" href="#">Reset Completed</a>
             </div>
         </div>
