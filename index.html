@@ -110,22 +110,6 @@
             grid-column: 3;
         }
 
-        .step-number {
-            width: 60px;
-            height: 60px;
-            border-radius: 15px;
-            background: linear-gradient(135deg, #74b9ff, #0984e3);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 1.1rem;
-            grid-column: 2;
-            justify-self: center;
-            z-index: 3;
-        }
-
         /* Alternate step content to left on even rows */
         .step:nth-child(even) .step-content {
             grid-column: 1;
@@ -266,12 +250,6 @@
         }
 
         @media (min-width: 769px) {
-            .step-number {
-                width: 70px;
-                height: 70px;
-                font-size: 1.3rem;
-                border-radius: 20px;
-            }
             /* Center steps on the vertical line for desktop */
             .step { display: block; }
             .step-content { margin: 0 auto; width: 100%; max-width: 720px; grid-column: auto; }
@@ -291,17 +269,6 @@
                 position: relative;
                 padding-left: 0;
                 margin-left: 0;
-            }
-
-            .step-number {
-                position: absolute;
-                left: 35px;
-                top: 0;
-                transform: translateX(-50%);
-                width: 60px;
-                height: 60px;
-                font-size: 1.1rem;
-                border-radius: 15px;
             }
 
             .step-content {
@@ -333,14 +300,6 @@
             
             .step {
                 padding-left: 0;
-            }
-            
-            .step-number {
-                left: 30px;
-                width: 50px;
-                height: 50px;
-                font-size: 1rem;
-                border-radius: 12px;
             }
             
             .timeline::before {
@@ -506,10 +465,6 @@
             margin: 20px auto 0 auto;
             border-radius: 20px;
         }
-
-    /* Numbers are now in titles; hide separate tile */
-    .step-number { display: none; }
-
         /* Sticky category nav */
         html { scroll-behavior: smooth; }
         .sticky-nav {
@@ -733,11 +688,9 @@
             <!-- Category: Tools & Account -->
             <section id="tools-account" class="category" aria-labelledby="tools-account-label">
                 <h2 id="tools-account-label" class="sr-only">Tools &amp; Account</h2>
-            <!-- Step 1: Read System Requirements -->
             <div class="step">
-                <div class="step-number">1</div>
                 <div class="step-content">
-                    <h3 class="step-title">1. Read System Requirements</h3>
+                    <h3 class="step-title">Read System Requirements</h3>
                     <p class="step-description">Let's get started by verifying you have the right environment to start developing and testing your World. Check these hardware requirements:</p>
                     <ul class="step-links">
                         <li><a href="https://www.meta.com/help/quest/140991407990979/" target="_blank" rel="noopener noreferrer">Do you have a Windows PC?</a></li>
@@ -746,11 +699,9 @@
                 </div>
             </div>
 
-            <!-- Step 2: Download Worlds Desktop Editor -->
             <div class="step">
-                <div class="step-number">2</div>
                 <div class="step-content">
-                    <h3 class="step-title">2. Download Worlds Desktop Editor</h3>
+                    <h3 class="step-title">Download Worlds Desktop Editor</h3>
                     <p class="step-description">Now let's install the applications that you will use during your world creation:</p>
                     <ul class="step-links">
                         <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/get-started/install-desktop-editor#install-the-desktop-editor" target="_blank" rel="noopener noreferrer">Download the Worlds Desktop Editor</a></li>
@@ -765,11 +716,9 @@
                 </div>
             </div>
 
-            <!-- Step 3: Create a Meta Account -->
             <div class="step">
-                <div class="step-number">3</div>
                 <div class="step-content">
-                    <h3 class="step-title">3. Create a Meta Account</h3>
+                    <h3 class="step-title">Create a Meta Account</h3>
                     <p class="step-description">You've successfully set up your world creation environment! Great job! Let's log in and create an avatar to start you on your world creation journey:</p>
                     <ul class="step-links">
                         <li><a href="https://quest.meta.com/avatar" target="_blank" rel="noopener noreferrer">Create a Meta Horizon Avatar</a></li>
@@ -781,11 +730,9 @@
             <!-- Category: World & Assets -->
             <section id="world-assets" class="category" aria-labelledby="world-assets-label">
                 <h2 id="world-assets-label" class="sr-only">World &amp; Assets</h2>
-            <!-- Step 4: Create New World -->
             <div class="step">
-                <div class="step-number">4</div>
                 <div class="step-content">
-                    <h3 class="step-title">4. Create New World</h3>
+                    <h3 class="step-title">Create New World</h3>
                     <p class="step-description">You’re ready to start building in the metaverse! Every masterpiece starts as a blank canvas. In Meta Horizon, you start on a blank world! Open the Worlds Desktop Editor and log in with your new account. Then, create a new world:</p>
                     <ul class="step-links">
                         <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/get-started/create-your-first-world#step-1-create-a-new-world" target="_blank" rel="noopener noreferrer">Press the New World button in Creation Home</a></li>
@@ -797,11 +744,9 @@
                 </div>
             </div>
 
-            <!-- Step 5: Move Around the World -->
             <div class="step">
-                <div class="step-number">5</div>
                 <div class="step-content">
-                    <h3 class="step-title">5. Move Around the World</h3>
+                    <h3 class="step-title">Move Around the World</h3>
                     <p class="step-description">Pretty simple, right? Let's explore the blank world for a moment:</p>
                     <ul class="step-links">
                         <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/desktop-editor/getting-started/user-interface/primary_tools#camera-speed-controls" target="_blank" rel="noopener noreferrer">Fly around in Build mode by holding right-click and pressing WASD</a></li>
@@ -813,11 +758,9 @@
                 </div>
             </div>
 
-            <!-- Step 6: Generate a 3D Model -->
             <div class="step">
-                <div class="step-number">6</div>
                 <div class="step-content">
-                    <h3 class="step-title">6. Generate a 3D Model</h3>
+                    <h3 class="step-title">Generate a 3D Model</h3>
                     <p class="step-description">You're making great progress jumping into this new territory! Let's give it a personal touch by creating your world's very first 3D model:</p>
                     <ul class="step-links">
                         <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/desktop-editor/generative-ai-creation-tools/generative-ai-mesh-generation-tool#generate-a-mesh-with-mesh-gen-11" target="_blank" rel="noopener noreferrer">Add a generated mesh</a></li>
@@ -832,11 +775,9 @@
                 </div>
             </div>
 
-            <!-- Step 7: Generate a Skybox -->
             <div class="step">
-                <div class="step-number">7</div>
                 <div class="step-content">
-                    <h3 class="step-title">7. Generate a Skybox</h3>
+                    <h3 class="step-title">Generate a Skybox</h3>
                     <p class="step-description">You have great taste! Let's explore that creativity even further! We'll add some environment to your world by generating a sky:</p>
                     <ul class="step-links">
                         <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/desktop-editor/generative-ai-creation-tools/generative-ai-skybox-tool" target="_blank" rel="noopener noreferrer">Add a generated sky</a></li>
@@ -849,12 +790,9 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Step 8: Publish world -->
             <div class="step">
-                <div class="step-number">8</div>
                 <div class="step-content">
-                    <h3 class="step-title">8. Publish Your First World</h3>
+                    <h3 class="step-title">Publish Your First World</h3>
                     <p class="step-description">You may not realize this yet, but you are officially a <span class="highlight-text">World Creator</span>! It's time to share your awesome progress by publishing a public version of your world, making it possible for others to visit your world:</p>
                     <ul class="step-links">
                         <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/save-optimize-and-publish/publish-your-world" target="_blank" rel="noopener noreferrer">Publish your world</a></li>
@@ -862,11 +800,9 @@
                 </div>
             </div>
 
-            <!-- Step 9: Open on Mobile -->
             <div class="step">
-                <div class="step-number">9</div>
                 <div class="step-content">
-                    <h3 class="step-title">9. Open on Mobile</h3>
+                    <h3 class="step-title">Open on Mobile</h3>
                     <p class="step-description">Now you can tell your friends to look up your world name on the Meta Horizon app on their mobile device! You can find a shareable link by finding your world on the Creator Tools website, too:</p>
                     <ul class="step-links">
                         <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/create-for-web-and-mobile/how-to-test-on-web-and-mobile#mobile" target="_blank" rel="noopener noreferrer">Open your world page on mobile</a></li>
@@ -878,11 +814,9 @@
             <!-- Category: Code & Systems -->
             <section id="code-systems" class="category" aria-labelledby="code-systems-label">
                 <h2 id="code-systems-label" class="sr-only">Code &amp; Systems</h2>
-            <!-- Step 10: Create a Script -->
             <div class="step">
-                <div class="step-number">10</div>
                 <div class="step-content">
-                    <h3 class="step-title">10. Create a Script</h3>
+                    <h3 class="step-title">Create a Script</h3>
                     <p class="step-description">It's time to level up with some simple scripting! We'll be creating a simple respawn script. Let's start here:</p>
                     <ul class="step-links">
                         <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/typescript/getting-started/using-typescript-in-horizon-worlds" target="_blank" rel="noopener noreferrer">Create a script</a></li>
@@ -890,11 +824,9 @@
                 </div>
             </div>
 
-            <!-- Step 11: Create Custom Properties -->
             <div class="step">
-                <div class="step-number">11</div>
                 <div class="step-content">
-                    <h3 class="step-title">11. Create Custom Properties</h3>
+                    <h3 class="step-title">Create Custom Properties</h3>
                     <p class="step-description">Excellent work! Now let's enhance the script by adding a custom property:</p>
                     <ul class="step-links">
                         <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/typescript/getting-started/typescript-components-properties-and-variables" target="_blank" rel="noopener noreferrer">Add an entity property called "spawnPoint"</a></li>
@@ -902,11 +834,9 @@
                 </div>
             </div>
 
-            <!-- Step 12: Place a Trigger Gizmo -->
             <div class="step">
-                <div class="step-number">12</div>
                 <div class="step-content">
-                    <h3 class="step-title">12. Place a Trigger Gizmo</h3>
+                    <h3 class="step-title">Place a Trigger Gizmo</h3>
                     <p class="step-description">You're getting the hang of this! Time to bring in the trigger gizmo:</p>
                     <ul class="step-links">
                         <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/code-blocks-and-gizmos/use-the-trigger-zone" target="_blank" rel="noopener noreferrer">Add trigger gizmo</a></li>
@@ -914,11 +844,9 @@
                 </div>
             </div>
 
-            <!-- Step 13: Attaching the Script to the Trigger -->
             <div class="step">
-                <div class="step-number">13</div>
                 <div class="step-content">
-                    <h3 class="step-title">13. Attaching the Script to the Trigger</h3>
+                    <h3 class="step-title">Attaching the Script to the Trigger</h3>
                     <p class="step-description">Get ready for the best part! Let's put it all together:</p>
                     <ul class="step-links">
                         <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/desktop-editor/getting-started/adding-and-editing-scripts#adding-an-existing-script-to-an-entity" target="_blank" rel="noopener noreferrer">Attach the script to the trigger</a></li>
@@ -928,11 +856,9 @@
                 </div>
             </div>
 
-            <!-- Step 14: Create Entity -->
             <div class="step">
-                <div class="step-number">14</div>
                 <div class="step-content">
-                    <h3 class="step-title">14. Create Entity</h3>
+                    <h3 class="step-title">Create Entity</h3>
                     <p class="step-description">If you've made it this far, then you REALLY want to step your world creation skills up! Let's learn about creating empty objects:</p>
                     <ul class="step-links">
                         <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/desktop-editor/hierarchy-window/hierarchy-window-overview#empty-objects" target="_blank" rel="noopener noreferrer">Add an empty object</a></li>
@@ -940,11 +866,9 @@
                 </div>
             </div>
 
-            <!-- Step 15: Adding Children -->
             <div class="step">
-                <div class="step-number">15</div>
                 <div class="step-content">
-                    <h3 class="step-title">15. Adding Children</h3>
+                    <h3 class="step-title">Adding Children</h3>
                     <p class="step-description">Very nice! Empty objects really shine when you add child objects to them. Let's turn this empty object into a ball:</p>
                     <ul class="step-links">
                         <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/desktop-editor/assets/public-asset-library" target="_blank" rel="noopener noreferrer">Place a ball from the Public Assets into the world</a></li>
@@ -953,11 +877,9 @@
                 </div>
             </div>
 
-            <!-- Step 16: Enable Grab and Physics -->
             <div class="step">
-                <div class="step-number">16</div>
                 <div class="step-content">
-                    <h3 class="step-title">16. Enable Grab and Physics</h3>
+                    <h3 class="step-title">Enable Grab and Physics</h3>
                     <p class="step-description">How about we turn on some fun interactivity? Let's make this entity grabbable and physics-enabled:</p>
                     <ul class="step-links">
                         <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/create-for-web-and-mobile/grabbable-entities/create-grabbable-entities" target="_blank" rel="noopener noreferrer">Set the entity's Motion property to Interactive and Interaction to Both (Grabbable and Physics)</a></li>
@@ -966,11 +888,9 @@
                 </div>
             </div>
 
-            <!-- Step 17: Modifying Grab Settings -->
             <div class="step">
-                <div class="step-number">17</div>
                 <div class="step-content">
-                    <h3 class="step-title">17. Modifying Grab Settings</h3>
+                    <h3 class="step-title">Modifying Grab Settings</h3>
                     <p class="step-description">The fun is just getting started! Try changing some other settings on the entity:</p>
                     <ul class="step-links">
                         <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/create-for-web-and-mobile/grabbable-entities/avatar-poses" target="_blank" rel="noopener noreferrer">Try different avatar grip poses</a></li>
@@ -978,11 +898,9 @@
                 </div>
             </div>
 
-            <!-- Step 18: Debugging -->
             <div class="step">
-                <div class="step-number">18</div>
                 <div class="step-content">
-                    <h3 class="step-title">18. Debugging</h3>
+                    <h3 class="step-title">Debugging</h3>
                     <p class="step-description">You're glowing from all of the skills you've gained! It's time to sharpen your tools by learning about debugging:</p>
                     <ul class="step-links">
                         <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/desktop-editor/getting-started/editor-console" target="_blank" rel="noopener noreferrer">Familiarize yourself with the Console tab</a></li>
@@ -993,11 +911,9 @@
                 </div>
             </div>
 
-            <!-- Step 19: Apply Custom Player Velocity -->
             <div class="step">
-                <div class="step-number">19</div>
                 <div class="step-content">
-                    <h3 class="step-title">19. Apply Custom Player Velocity</h3>
+                    <h3 class="step-title">Apply Custom Player Velocity</h3>
                     <p class="step-description">You should be very proud of your progress! For doing such a great job, let's have some more fun! How about we launch your avatar into the air?</p>
                     <ul class="step-links">
                         <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/desktop-editor/settings-modifications/player-settings-modification" target="_blank" rel="noopener noreferrer">Edit the Player Settings to enable Custom Player Movement</a></li>
@@ -1010,11 +926,9 @@
                 </div>
             </div>
 
-            <!-- Step 20: Create Local Script -->
             <div class="step">
-                <div class="step-number">20</div>
                 <div class="step-content">
-                    <h3 class="step-title">20. Create Local Script</h3>
+                    <h3 class="step-title">Create Local Script</h3>
                     <p class="step-description">What'd you think of that last section? Pretty wild stuff, huh? Now we are going to turn the difficulty up a bit. Let’s get ready to implement custom player controls. First, we need to create a Local Script. Let’s set one up now:</p>
                     <ul class="step-links">
                         <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/typescript/local-scripting/getting-started-with-local-scripting" target="_blank" rel="noopener noreferrer">Attach a new script to the ball and set it to Local Execution Mode</a></li>
@@ -1028,11 +942,9 @@
                 </div>
             </div>
 
-            <!-- Step 21: Create Custom Player Control -->
             <div class="step">
-                <div class="step-number">21</div>
                 <div class="step-content">
-                    <h3 class="step-title">21. Create Custom Player Control</h3>
+                    <h3 class="step-title">Create Custom Player Control</h3>
                     <p class="step-description">You've got this! Custom player controls can only be added to local scripts. So let’s implement it into our new script:</p>
                     <ul class="step-links">
                         <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/create-for-web-and-mobile/typescript-apis-for-mobile/custom-input-api" target="_blank" rel="noopener noreferrer">Add PlayerControls to the ball script</a></li>
@@ -1045,11 +957,9 @@
                 </div>
             </div>
 
-            <!-- Step 22: Tagging objects -->
             <div class="step">
-                <div class="step-number">22</div>
                 <div class="step-content">
-                    <h3 class="step-title">22. Tagging objects</h3>
+                    <h3 class="step-title">Tagging objects</h3>
                     <p class="step-description">Do you feel like you’re <span class="highlight-text">Thor</span> calling back your hammer? Let’s start turning interaction into a game mechanic:</p>
                     <ul class="step-links">
                         <li>Create another scripted trigger, but this time set it to Objects Tagged
@@ -1062,11 +972,9 @@
                 </div>
             </div>
 
-            <!-- Step 23: Create UI -->
             <div class="step">
-                <div class="step-number">23</div>
                 <div class="step-content">
-                    <h3 class="step-title">23. Create UI</h3>
+                    <h3 class="step-title">Create UI</h3>
                     <p class="step-description">You're leveling up like a <span class="highlight-text">champ</span>! Let’s set up your player user interface so you can keep score:</p>
                     <ul class="step-links">
                         <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/desktop-editor/custom-ui/creating-a-custom-ui-panel" target="_blank" rel="noopener noreferrer">Add Custom UI Gizmo</a></li>
@@ -1075,11 +983,9 @@
                 </div>
             </div>
 
-            <!-- Step 24: Create UI Binding -->
             <div class="step">
-                <div class="step-number">24</div>
                 <div class="step-content">
-                    <h3 class="step-title">24. Create UI Binding</h3>
+                    <h3 class="step-title">Create UI Binding</h3>
                     <p class="step-description">You’re doing great! Let’s set the UI up to show player score:</p>
                     <ul class="step-links">
                         <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/typescript/getting-started/modules-and-global-functions" target="_blank" rel="noopener noreferrer">Create a module file</a></li>
@@ -1101,11 +1007,9 @@
                 </div>
             </div>
 
-            <!-- Step 25: Use Player Persistence -->
             <div class="step">
-                <div class="step-number">25</div>
                 <div class="step-content">
-                    <h3 class="step-title">25. Use Player Persistence</h3>
+                    <h3 class="step-title">Use Player Persistence</h3>
                     <p class="step-description">You're getting the hang of this! Let’s persist the score you already show in your UI so players keep progress between visits:</p>
                     <ul class="step-links">
                         <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/typescript/getting-started/persistent-variables-v2" target="_blank" rel="noopener noreferrer">Create a Variable Group with a number Player Persistent Variable (PPV)</a></li>
@@ -1118,11 +1022,9 @@
                 </div>
             </div>
 
-            <!-- Step 26: Create a Quest -->
             <div class="step">
-                <div class="step-number">26</div>
                 <div class="step-content">
-                    <h3 class="step-title">26. Create a Quest</h3>
+                    <h3 class="step-title">Create a Quest</h3>
                     <p class="step-description">Now that you are a programmer, it’s time to become a <span class="highlight-text">Pro Gamer</span>! Let’s create a score milestone quest that uses your existing PPV and leaderboard:</p>
                     <ul class="step-links">
                         <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/desktop-editor/quests-leaderboards-and-variable-groups/quests-overview" target="_blank" rel="noopener noreferrer">Learn about Quests and how they motivate players</a></li>
@@ -1136,11 +1038,9 @@
                 </div>
             </div>
 
-            <!-- Step 27: Create Custom Events -->
             <div class="step">
-                <div class="step-number">27</div>
                 <div class="step-content">
-                    <h3 class="step-title">27. Create Custom Events</h3>
+                    <h3 class="step-title">Create Custom Events</h3>
                     <p class="step-description">You're nailing these concepts! Let’s update the Object Trigger script to broadcast an event other systems can listen to:</p>
                     <ul class="step-links">
                         <li>In the Object Trigger Script
@@ -1158,11 +1058,9 @@
                 </div>
             </div>
 
-            <!-- Step 28: Activate Special Effects -->
             <div class="step">
-                <div class="step-number">28</div>
                 <div class="step-content">
-                    <h3 class="step-title">28. Activate Special Effects</h3>
+                    <h3 class="step-title">Activate Special Effects</h3>
                     <p class="step-description">Time to juice up the world! You can make the world come alive with audio and visual effects:</p>
                     <ul class="step-links">
                         <li>Attach a new script to a new Empty Object
@@ -1188,11 +1086,9 @@
 
             
 
-            <!-- Step 29: Using Timers -->
             <div class="step">
-                <div class="step-number">29</div>
                 <div class="step-content">
-                    <h3 class="step-title">29. Using Timers</h3>
+                    <h3 class="step-title">Using Timers</h3>
                     <p class="step-description">Feels pretty magical, right? Let’s make the score reset after a few seconds:</p>
                     <ul class="step-links">
                         <li>Create a new module called <strong>GameData</strong> and add the following line:</li>
@@ -1220,11 +1116,9 @@
                 </div>
             </div>
             
-            <!-- Step 30: Republish Your World -->
             <div class="step">
-                <div class="step-number">30</div>
                 <div class="step-content">
-                    <h3 class="step-title">30. Republish Your World</h3>
+                    <h3 class="step-title">Republish Your World</h3>
                     <p class="step-description">Amazing job! Ship your latest changes so others can try them:</p>
                     <ul class="step-links">
                         <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/save-optimize-and-publish/publish-your-world" target="_blank" rel="noopener noreferrer">Publish your world again</a></li>
@@ -1269,6 +1163,21 @@
     </div>
 </body>
 <script>
+// Dynamic step numbering: assign sequential numbers and sync titles
+(() => {
+    const steps = Array.from(document.querySelectorAll('.timeline .step'));
+    steps.forEach((stepEl, idx) => {
+        const n = idx + 1;
+        stepEl.setAttribute('data-step-number', String(n));
+        const titleEl = stepEl.querySelector('.step-title');
+        if (!titleEl) return;
+        const raw = titleEl.textContent || '';
+        // Strip any existing leading number like "12. " before re-applying
+        const cleaned = raw.replace(/^\s*\d+\.\s*/, '').trim();
+        titleEl.textContent = `${n}. ${cleaned}`;
+    });
+})();
+
 // Scroll-spy: highlight nav category based on the step in view
 (() => {
     const navLinks = Array.from(document.querySelectorAll('.sticky-nav .nav-link'));
@@ -1277,14 +1186,11 @@
     const steps = Array.from(document.querySelectorAll('.timeline .step'));
 
     function getStepNumber(stepEl) {
-        const numEl = stepEl.querySelector('.step-number');
-        if (numEl && numEl.textContent) {
-            const n = parseInt(numEl.textContent.trim(), 10);
-            if (!isNaN(n)) return n;
-        }
+        const attr = stepEl.getAttribute('data-step-number');
+        if (attr) return parseInt(attr, 10);
         const title = stepEl.querySelector('.step-title')?.textContent || '';
-        const m = title.match(/^(\s*)(\d+)/);
-        return m ? parseInt(m[2], 10) : null;
+        const m = title.match(/^\s*(\d+)/);
+        return m ? parseInt(m[1], 10) : null;
     }
 
     function categoryForStep(n) {
@@ -1430,14 +1336,11 @@ function updateProgressBar() {
     
     // Helper function to get step number from step element
     function getStepNumber(stepEl) {
-        const numEl = stepEl.querySelector('.step-number');
-        if (numEl && numEl.textContent) {
-            const n = parseInt(numEl.textContent.trim(), 10);
-            if (!isNaN(n)) return n;
-        }
+        const attr = stepEl.getAttribute('data-step-number');
+        if (attr) return parseInt(attr, 10);
         const title = stepEl.querySelector('.step-title')?.textContent || '';
-        const m = title.match(/^(\s*)(\d+)/);
-        return m ? parseInt(m[2], 10) : null;
+        const m = title.match(/^\s*(\d+)/);
+        return m ? parseInt(m[1], 10) : null;
     }
     
     // Helper function to determine category for a step number
@@ -1519,14 +1422,11 @@ function updateProgressBar() {
     if (!steps.length) return;
 
     function getStepNumber(stepEl) {
-        const numEl = stepEl.querySelector('.step-number');
-        if (numEl && numEl.textContent) {
-            const n = parseInt(numEl.textContent.trim(), 10);
-            if (!isNaN(n)) return n;
-        }
+        const attr = stepEl.getAttribute('data-step-number');
+        if (attr) return parseInt(attr, 10);
         const title = stepEl.querySelector('.step-title')?.textContent || '';
-        const m = title.match(/^(\s*)(\d+)/);
-        return m ? parseInt(m[2], 10) : null;
+        const m = title.match(/^\s*(\d+)/);
+        return m ? parseInt(m[1], 10) : null;
     }
 
     let state = {};
