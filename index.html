@@ -546,9 +546,12 @@
             white-space: nowrap;
         }
 
-        .sticky-nav .nav-link:hover {
-            background: #0064E0;
-            color: white;
+        /* Limit hover styles to devices that actually support hover to avoid sticky hover on touch */
+        @media (hover: hover) and (pointer: fine) {
+            .sticky-nav .nav-link:hover {
+                background: #0064E0;
+                color: white;
+            }
         }
 
         .sticky-nav .nav-link.active,
@@ -1500,9 +1503,8 @@
             return null;
         }
 
-        let activeId = null;
-        // Make activeId globally accessible
-        window.activeId = null;
+    // Single source of truth for active section
+    window.activeId = null;
         const visibleSteps = new Map(); // stepEl -> intersectionRatio
         const io = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -1524,10 +1526,7 @@
 
         steps.forEach(s => io.observe(s));
 
-        function updateActive() {
-            // Don't update if user just manually navigated
-            if (manualNavigation) return;
-
+    function updateActive() {
             if (visibleSteps.size === 0) return;
             let best = null, bestRatio = -1, bestTop = Infinity;
             visibleSteps.forEach((ratio, el) => {
@@ -1539,8 +1538,7 @@
             });
             const n = getStepNumber(best);
             const id = categoryForStep(n);
-            if (id && id !== activeId) {
-                activeId = id;
+            if (id && id !== window.activeId) {
                 window.activeId = id; // Update global reference
                 navLinks.forEach(a => {
                     const isActive = a.getAttribute('href') === '#' + id;
@@ -1555,38 +1553,21 @@
             }
         }
 
-        // On nav click, set active immediately and add a delay before re-enabling auto-update
-        let manualNavigation = false;
+    // On nav click, hint the intended section for progress bar; IO will update active classes
         navLinks.forEach(a => {
-            a.addEventListener('click', (e) => {
+            a.addEventListener('click', () => {
                 const id = a.getAttribute('href').slice(1);
-                activeId = id;
                 window.activeId = id; // Update global reference
-                manualNavigation = true; // Temporarily disable auto-updates
-
-                navLinks.forEach(l => {
-                    const isActive = l === a;
-                    l.classList.toggle('active', isActive);
-                    if (isActive) l.setAttribute('aria-current', 'page');
-                    else l.removeAttribute('aria-current');
-                });
-
-                // Update progress bar when nav is clicked
                 if (typeof updateProgressBar === 'function') {
                     updateProgressBar();
                 }
-
-                // Re-enable auto-updates after scrolling has settled
-                setTimeout(() => {
-                    manualNavigation = false;
-                }, 1000);
             });
         });
 
         function initFromHash() {
             const hash = location.hash ? location.hash.slice(1) : null;
             if (hash && linkById.has(hash)) {
-                activeId = hash;
+                window.activeId = hash;
                 navLinks.forEach(a => {
                     const isActive = a.getAttribute('href') === '#' + hash;
                     a.classList.toggle('active', isActive);
